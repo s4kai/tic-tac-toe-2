@@ -36,7 +36,7 @@ export class HTMLRender implements Observer {
 
       if (!value) continue;
 
-      cell.textContent = value;
+      cell.innerHTML = this.getIconFromPlayer(value);
       cell.classList.add(this.playerClass(value));
     }
   }
@@ -93,7 +93,7 @@ export class HTMLRender implements Observer {
       <div class="winner-content">
         <h2>🏆 Winner</h2>
         <div class="winner-player ${this.playerClass(winner)}">
-          ${winner}
+          ${this.getIconFromPlayer(winner)}
         </div>
         <button class="winner-button">Play Again</button>
       </div>
@@ -130,7 +130,7 @@ export class HTMLRender implements Observer {
     return `
       <span class="status-label">Current Player</span>
       <span class="status-player ${this.playerClass(player)}">
-        ${player}
+        ${this.getIconFromPlayer(player)}
       </span>
     `;
   }
@@ -169,5 +169,13 @@ export class HTMLRender implements Observer {
       throw new Error(`Element with id "${id}" not found.`);
     }
     return element;
+  }
+
+  private getIconFromPlayer(player: Player) {
+    if (player == Player.O) {
+      return `<i class="fa-regular fa-circle"></i>`
+    }
+
+    return `<i class="fa-solid fa-x"></i>`
   }
 }

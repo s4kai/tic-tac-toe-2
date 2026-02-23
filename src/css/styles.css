@@ -1,13 +1,13 @@
 :root {
-  --background: 0 0% 100%;
+  --background: 222 47% 97%;
   --foreground: 222 47% 11%;
   --card: 0 0% 100%;
   --card-foreground: 222 47% 11%;
-  --border: 214 32% 91%;
-  --muted: 215 16% 47%;
-  --accent: 262 83% 58%;
-  --destructive: 0 72% 51%;
-  --success: 142 71% 45%;
+  --border: 220 20% 88%;
+  --muted: 220 15% 50%;
+  --accent: 262 60% 55%;
+  --destructive: 351, 72%, 51%;
+  --success: 142 55% 42%;
   --radius: 0.75rem;
 }
 
@@ -19,7 +19,7 @@
   --border: 240 8% 22%;
   --muted: 240 6% 70%;
   --accent: 262 90% 65%;
-  --destructive: 0 75% 60%;
+  --destructive: 351, 72%, 51%;
   --success: 142 70% 50%;
 }
 
@@ -154,17 +154,25 @@ h1 {
   font-weight: 700;
   pointer-events: none;
   letter-spacing: -0.05em;
+  color: hsl(var(--background));
+}
+
+body.dark .board::after {
+  color: hsl(var(--foreground)) !important;
 }
 
 .board.won.x::after {
-  content: "X";
-  color: hsl(var(--accent));
+  content: "\58";
+  font-family: "Font Awesome 6 Free";
+  background-color: hsl(var(--accent));
   animation: pop 0.2s ease-out;
 }
 
 .board.won.o::after {
-  content: "O";
-  color: hsl(var(--destructive));
+  content: "\f111";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+  background-color: hsl(var(--destructive));
   animation: pop 0.2s ease-out;
 }
 
@@ -398,7 +406,8 @@ body.dark .theme-toggle {
 }
 
 .btn-danger:hover {
-  background: hsl(0 75% 45%);
+  background: hsl(var(--destructive));
+  opacity: 0.9;
   box-shadow: 0 8px 22px hsl(var(--destructive) / 0.35);
 }
 
@@ -410,17 +419,6 @@ body.dark .theme-toggle {
 .btn-danger:focus-visible {
   outline: 2px solid hsl(var(--destructive));
   outline-offset: 2px;
-}
-
-.dark .btn-danger {
-  background: hsl(0 75% 60%);
-  border-color: hsl(0 75% 60%);
-  box-shadow: 0 6px 18px hsl(0 75% 60% / 0.35);
-}
-
-.dark .btn-danger:hover {
-  background: hsl(0 80% 65%);
-  box-shadow: 0 8px 24px hsl(0 80% 65% / 0.45);
 }
 
 @keyframes alertFade {
