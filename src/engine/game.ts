@@ -121,10 +121,12 @@ export class Game extends Subject {
   }
 
   private handleNewActiveBoard(tinyIndex: number) {
-    const nextBoardIsClosed =
-      this.state.mainBoard[tinyIndex] !== null;
+    const { tinyBoard } = this.state;
 
-    if (nextBoardIsClosed) {
+    const nextBoardIsClosed = this.state.mainBoard[tinyIndex] !== null;
+    const tinyBoardIsFull = tinyBoard[tinyIndex].every(cell => cell != null);
+
+    if (nextBoardIsClosed || tinyBoardIsFull) {
       this.unlockBoardSelection();
     } else {
       this.state.activeBoard = tinyIndex;
