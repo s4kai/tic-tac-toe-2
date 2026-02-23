@@ -17,7 +17,7 @@ export class Game extends Subject {
       mainBoard,
       tinyBoard,
       activeBoard: 4,
-      allowAnyBoard: false,
+      allowAnyBoard: true,
       currentPlayer: Player.X,
       winner: null
     }
@@ -26,6 +26,7 @@ export class Game extends Subject {
   constructor() {
     super();
     this.state = this.initialState()
+    this.notify(this.state);
   }
 
   public reset() {
