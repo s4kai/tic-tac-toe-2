@@ -1,37 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jogo da Velha 2</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="dist/css/styles.css" />
-  </head>
-  <body>
-    <div id="root">
-      <div class="turn-container">
-        <h1>JOGO DA VELHA 2</h1>
-        <span class="player" id="turn"></span>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tic-tac-toe-2</title>
+</head>
+
+<body>
+
+  <header class="game-header">
+    <h1>Ultimate Tic Tac Toe</h1>
+    <div class="actions">
+      <div id="status">
+        <span class="status-label">Current Player</span>
+        <span class="status-player x">
+          X
+        </span>
       </div>
 
-      <div class="game" id="principal"></div>
-
-      <button id="reset" class="btn-primary disabled">Reiniciar</button>
+      <div>
+        <button id="reset-button" class="btn-danger">Reset</button>
+      </div>
     </div>
-    <script
-      type="module"
-      crossorigin="anonymous"
-      src="dist/js/index.js"
-    ></script>
-    <script
-      type="module"
-      crossorigin="anonymous"
-      src="dist/js/tictactoe.js"
-    ></script>
-  </body>
+    <div id="alert"></div>
+  </header>
+
+  <div class="main-board">
+    <div class="board" data-board="0">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+
+    <div class="board" data-board="1">
+      <div class="cell" data-index="9"></div>
+      <div class="cell" data-index="10"></div>
+      <div class="cell" data-index="11"></div>
+      <div class="cell" data-index="12"></div>
+      <div class="cell" data-index="13"></div>
+      <div class="cell" data-index="14"></div>
+      <div class="cell" data-index="15"></div>
+      <div class="cell" data-index="16"></div>
+      <div class="cell" data-index="17"></div>
+    </div>
+
+    <div class="board" data-board="2">
+      <div class="cell" data-index="18"></div>
+      <div class="cell" data-index="19"></div>
+      <div class="cell" data-index="20"></div>
+      <div class="cell" data-index="21"></div>
+      <div class="cell" data-index="22"></div>
+      <div class="cell" data-index="23"></div>
+      <div class="cell" data-index="24"></div>
+      <div class="cell" data-index="25"></div>
+      <div class="cell" data-index="26"></div>
+    </div>
+
+    <div class="board" data-board="3">
+      <div class="cell" data-index="27"></div>
+      <div class="cell" data-index="28"></div>
+      <div class="cell" data-index="29"></div>
+      <div class="cell" data-index="30"></div>
+      <div class="cell" data-index="31"></div>
+      <div class="cell" data-index="32"></div>
+      <div class="cell" data-index="33"></div>
+      <div class="cell" data-index="34"></div>
+      <div class="cell" data-index="35"></div>
+    </div>
+
+    <div class="board active" data-board="4">
+      <div class="cell" data-index="36"></div>
+      <div class="cell" data-index="37"></div>
+      <div class="cell" data-index="38"></div>
+      <div class="cell" data-index="39"></div>
+      <div class="cell" data-index="40"></div>
+      <div class="cell" data-index="41"></div>
+      <div class="cell" data-index="42"></div>
+      <div class="cell" data-index="43"></div>
+      <div class="cell" data-index="44"></div>
+    </div>
+
+    <div class="board" data-board="5">
+      <div class="cell" data-index="45"></div>
+      <div class="cell" data-index="46"></div>
+      <div class="cell" data-index="47"></div>
+      <div class="cell" data-index="48"></div>
+      <div class="cell" data-index="49"></div>
+      <div class="cell" data-index="50"></div>
+      <div class="cell" data-index="51"></div>
+      <div class="cell" data-index="52"></div>
+      <div class="cell" data-index="53"></div>
+    </div>
+
+    <div class="board" data-board="6">
+      <div class="cell" data-index="54"></div>
+      <div class="cell" data-index="55"></div>
+      <div class="cell" data-index="56"></div>
+      <div class="cell" data-index="57"></div>
+      <div class="cell" data-index="58"></div>
+      <div class="cell" data-index="59"></div>
+      <div class="cell" data-index="60"></div>
+      <div class="cell" data-index="61"></div>
+      <div class="cell" data-index="62"></div>
+    </div>
+
+    <div class="board" data-board="7">
+      <div class="cell" data-index="63"></div>
+      <div class="cell" data-index="64"></div>
+      <div class="cell" data-index="65"></div>
+      <div class="cell" data-index="66"></div>
+      <div class="cell" data-index="67"></div>
+      <div class="cell" data-index="68"></div>
+      <div class="cell" data-index="69"></div>
+      <div class="cell" data-index="70"></div>
+      <div class="cell" data-index="71"></div>
+    </div>
+
+    <div class="board" data-board="8">
+      <div class="cell" data-index="72"></div>
+      <div class="cell" data-index="73"></div>
+      <div class="cell" data-index="74"></div>
+      <div class="cell" data-index="75"></div>
+      <div class="cell" data-index="76"></div>
+      <div class="cell" data-index="77"></div>
+      <div class="cell" data-index="78"></div>
+      <div class="cell" data-index="79"></div>
+      <div class="cell" data-index="80"></div>
+    </div>
+  </div>
+
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    🌙
+  </button>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
