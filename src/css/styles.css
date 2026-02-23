@@ -391,6 +391,11 @@ body.dark .board::after {
   top: 50%;
   transform: translateY(-50%);
   width: min(92%, 360px);
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   padding: clamp(20px, 6vw, 32px);
   border-radius: var(--radius);
   background: hsl(var(--card));
@@ -398,6 +403,10 @@ body.dark .board::after {
   text-align: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: pop 0.2s ease-out;
+}
+
+.winner-player {
+  font-size: 5rem;
 }
 
 .winner-player.x {
