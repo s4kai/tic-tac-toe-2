@@ -11,6 +11,6 @@ if (themeToggle) {
   themeToggle.addEventListener("click", () => {
     const isDark = document.body.classList.toggle("dark");
     localStorage.setItem("theme", isDark ? "dark" : "light");
-    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    themeToggle.innerHTML = isDark ? `<i class="fa-regular fa-sun"></i>` : `<i class="fa-regular fa-moon"></i>`;
   });
 }
